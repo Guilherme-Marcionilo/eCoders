@@ -1,5 +1,9 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { Categoria } from '../model/Categoria';
+import { Observable } from 'rxjs';
+
 
 @Injectable({
   providedIn: 'root'
@@ -12,9 +16,9 @@ export class CategoriaService {
    }
 
 
-  cadastrarCategoria(categoria:Categoria)
+  cadastrarCategoria(categoria:Categoria): Observable<Categoria>
   {
-      return this.http.post('https://localhost:8080/categoria/cadastrar',categoria);
+      return this.http.post<Categoria>('https://localhost:8080/categoria/cadastrar',categoria);
   }
 
   encontrarTodos()

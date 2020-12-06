@@ -1,3 +1,4 @@
+import { Comerciante } from './Comerciante';
 export class Categoria
 {
     

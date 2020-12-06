@@ -1,5 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Comerciante } from '../model/Comerciante';
+import { Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -12,9 +15,9 @@ export class ComercianteService {
    }
 
 
-  cadastrarComerciante(comerciante: Comerciante)
+  cadastrarComerciante(comerciante: Comerciante): Observable<Comerciante>
   {
-      return this.http.post('https://localhost:8080/comerciante/cadastrar',comerciante);
+      return this.http.post<Comerciante>('https://localhost:8080/comerciante/cadastrar',comerciante);
   }
 
   encontrarTodos()
